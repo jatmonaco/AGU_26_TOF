@@ -1,0 +1,96 @@
+\setbeamercovered{transparent} % preview text when using \uncover
+\usepackage{etoolbox} % for precise adjustments within environments 
+\usepackage[sfdefault,semibold]{FiraSans}
+
+\usepackage[normalem]{ulem} % fancy underlines and stuff 
+\usepackage[dvipsnames, table]{xcolor} % named colors 
+
+% command to strike out text in red
+\renewcommand{\ULthickness}{1.5pt}  % making striketrhough bolder
+\newcommand<>\redout[1]{\alt#2{\bgroup\markoverwith
+{\textcolor{red}{\rule[0.5ex]{2pt}{0.8pt}}}\ULon{#1}}{{#1}}}
+
+\linespread{0.85} % tighter line spacing 
+
+\newcommand<>{\hlonly}[1]{\alt#2{\hl{#1}}{#1}}
+
+% Decreasing itemize environment font size
+\setbeamerfont{itemize/enumerate body}{size=\small}
+\setbeamerfont{itemize/enumerate subbody}{size=\footnotesize}
+
+% increasing bullet size 
+\setbeamertemplate{itemize item}{\small$\bullet$}
+\setbeamertemplate{itemize subitem}{\footnotesize$\circ$}
+\setbeamertemplate{itemize subsubitem}{\tiny$-$}
+
+\setbeamerfont{frametitle}{size=\LARGE}
+
+% This should work for item spacing
+\let\olditemize\itemize
+\renewcommand{\itemize}{%
+  \olditemize
+  \setlength{\itemsep}{0pt plus 0pt minus 0pt}%
+  \setlength{\parskip}{0pt}%
+  \setlength{\parsep}{0pt}%
+  \setlength{\topsep}{0pt}%
+  \setlength{\partopsep}{0pt}%
+}
+
+% Also patch enumerate for consistency
+\let\oldenumerate\enumerate
+\renewcommand{\enumerate}{%
+  \oldenumerate
+  \setlength{\itemsep}{0pt plus 0pt minus 0pt}%
+  \setlength{\parskip}{0pt}%
+  \setlength{\parsep}{0pt}%
+  \setlength{\topsep}{0pt}%
+  \setlength{\partopsep}{0pt}%
+}
+
+% Make item spacing match normal text
+\setbeamertemplate{itemize/enumerate body begin}{%
+    \vspace{-0.5\baselineskip}%
+}
+% \setbeamertemplate{itemize/enumerate subbody begin}{%
+%     \vspace{-0.5\baselineskip}%
+%     %
+% }
+
+\newcommand<>{\uncovergraphics}[2][{}]{
+    % Taken from: <https://tex.stackexchange.com/a/354033/95423>
+    \begin{tikzpicture}
+    \node[anchor=south west,inner sep=0] (B) at (4,0)
+        {\includegraphics[#1]{#2}};
+    \alt#3{}{%
+        \fill [draw=none, fill=white, fill opacity=0.9] (B.north west) -- (B.north east) -- (B.south east) -- (B.south west) -- (B.north west) -- cycle;
+    }
+    \end{tikzpicture}
+}
+
+\setcounter{tocdepth}{2} % Only sections and higher will appear
+\setbeamerfont{subsection title}{shape=\itshape, series=\mdseries}
+
+\usepackage{graphicx}
+
+\usepackage[style=ieee,backend=biber]{biblatex} % better citations 
+\setbeamerfont{bibliography item}{size=\tiny}
+\setbeamerfont{bibliography entry author}{size=\tiny}
+\setbeamerfont{bibliography entry title}{size=\tiny}
+\setbeamerfont{bibliography entry location}{size=\tiny}
+\setbeamerfont{bibliography entry note}{size=\tiny}
+
+\renewcommand*{\bibfont}{\tiny\linespread{0.85}} % changed
+
+% \setlength{\bibitemsep}{0pt plus 0pt minus 0pt} % Changed? 
+\setbeamertemplate{frametitle continuation}{}
+
+% \usepackage[draft]{animate}
+\usepackage{animate}
+
+% \usepackage{multirow}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+
+\newcommand{\e}[0]{\mathrm{e}}                      % math e 
+% \usepackage{wrapfig} % environment to wrap text around a figure
+\usepackage{emoji}
+\usepackage{soul} % highlighting and such

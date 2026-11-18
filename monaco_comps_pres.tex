@@ -1,0 +1,91 @@
+\documentclass{cubeamer}
+\input{header.tex}
+% \includeonlyframes{change_spec}
+\addbibresource{biblio.bib}
+\title{\textbf{An Alternative to Interferometry: Developing a Time-of-Flight Position Solution for Specular Meteor Radar Networks}}
+\subtitle{2026 NSF CEDAR Workshop: Meteoroids and Space Debris}
+\author[J. Monaco]{J. Monaco\(^1\) \\ Scott E. Palo\(^1\) \\ Kenneth Obenberger\(^2\)}
+\date{June 25th, 2026} 
+\institute[University of Colorado Boulder]{\scriptsize \(^1\)University of Colorado Boulder, \\ Ann and H.J. Smead Department of\\ Aerospace Engineering Sciences \\ ~ \\ 
+\(^2\)Air Force Research Lab, \\ Space Vehicles Directorate}
+\titlegraphic{
+    \begin{tikzpicture}[remember picture,overlay]
+        \node[anchor=east] at ([yshift=-1cm]current page.east) {
+            \scalebox{1}[1]{\adjincludegraphics[width=0.75\textwidth]{img/title_graphic.pdf}}
+        };
+    \end{tikzpicture}
+}
+
+\hypersetup{
+	pdftitle={An Alternative to Interferometry: Developing a Time-of-Flight Position Solution for Specular Meteor Radar Networks},
+	pdfauthor={J. Monaco}}
+\begin{document}
+
+\maketitle
+
+\include{ch6_gnss/conclusions.tex}
+
+\section[Meteor Radar Background]{Meteor Radar Background}
+
+\include{intro/basis.tex}
+
+\include{intro/products.tex}
+
+\include{intro/zephyr_overview.tex}
+
+\section[Current Positioning Standard: Interferometry]{Interferometry}
+
+\include{ch6_gnss/if_basis.tex}
+
+\include{ch6_gnss/ears.tex}
+
+\include{ch6_gnss/IF_sucks.tex}
+
+\section[Time-of-Flight Position Estimation of Specular Reflection Point]{TOF Position Estimation}
+
+\include{ch6_gnss/gps_intro.tex} 
+
+\include{ch6_gnss/gps_basis.tex} 
+
+\include{ch6_gnss/adapting.tex} 
+
+\include{ch6_gnss/tof_LS.tex}  
+
+\include{ch6_gnss/viabilty.tex}
+
+\include{ch6_gnss/overlap.tex}
+
+\section[Results with Monte Carlo Simulation]{Results}
+
+\include{ch6_gnss/mc_results.tex} 
+
+\include{ch6_gnss/results_precision.tex}
+
+\include{ch6_gnss/results_errors.tex}
+
+\section{Future Work and Summary}
+
+\include{ch6_gnss/future.tex}
+
+\include{ch6_gnss/conclusions.tex}
+
+% Q&A
+\begin{frame}[standout]
+    \Huge\textsc{Thank You}
+
+    \vfill
+    
+    \LARGE\textsc{Questions? Job offers?}
+    \textsc{Email: jamo8071@colorado.edu}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+    \frametitle{References}
+    \printbibliography[heading=none]
+\end{frame}
+
+
+% \appendix
+% \include{backup_slides/backup_slides.tex} 
+
+\end{document}
