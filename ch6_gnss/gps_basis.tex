@@ -1,0 +1,34 @@
+\begin{frame}[label=gps_basis]
+    \frametitle{GNSS: Basis of Operation}
+    Each range measurement gives more information 
+    \begin{columns}
+        \begin{column}{0.6\textwidth}
+            % \begin{itemize} \scriptsize
+            %     \item Ranges measured from satellites with known position
+            %     \item 4+ range measurements required for user position
+            %     \item More measurements \(\xrightarrow[]{}\) more precision
+            % \end{itemize}
+
+            Using 4 satellites \(\bullet, \textcolor{cyan}{\bullet}, \textcolor{yellow}{\bullet}, \textcolor{magenta}{\bullet}\):
+            {\setlength{\leftmargini}{1em} \begin{itemize} \footnotesize
+                \item<2->[\(\blacktriangleright\)] 1 range measurement constrains position to a \alert{sphere} 
+                \item<3->[\textcolor{cyan}{\(\blacktriangleright\)}] 2 measurements \(\xrightarrow[]{}\) \alert{circle} 
+                \item<4->[\textcolor{green}{\(\blacktriangleright\)}] 3 measurements\(\xrightarrow[]{}\) \alert{2 points}
+                \item<5->[\(\vartriangleright \)] 4 measurements \(\xrightarrow[]{}\) \alert{1 point}!
+            \end{itemize}}
+            \centering
+            \uncover<6->{\begin{tcolorbox}[width = 0.6\linewidth, center, boxrule=0pt,colback=yellow,arc=0pt, outer arc=0pt,left=0pt,right=0pt,boxsep=0pt]
+                \centering
+                \textbf{How can this be adapted for meteor radar?}
+            \end{tcolorbox}}
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            \centering %
+            \includegraphics<1>[height=0.8\textheight]{img/0spheres.pdf}%
+            \includegraphics<2>[height=0.8\textheight]{img/1spheres.pdf}%
+            \includegraphics<3>[height=0.8\textheight]{img/2spheres.pdf}%
+            \includegraphics<4>[height=0.8\textheight]{img/3spheres.pdf}%
+            \includegraphics<5->[height=0.8\textheight]{img/4spheres.pdf}%
+        \end{column}
+    \end{columns}
+\end{frame}

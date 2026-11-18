@@ -1,0 +1,31 @@
+\begin{frame}[label=future_work]
+    \frametitle{Future Work}
+    \begin{columns}
+        \begin{column}{0.7\textwidth}
+            \begin{itemize}
+                \item Verify de-biased correlation function with real data
+                \item Examine the effects of error in assumed \textcolor{blue}{\textbf{TX}}/\textcolor{red}{\textbf{RX}} positions 
+                \item Carry out experimental campaign to directly compare interferometric and TOF solutions.
+            \end{itemize}
+            ~ \\ ~ \\ ~ \\ ~
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            \centering
+            \includegraphics[width=0.65\linewidth]{img/corr_smear_0F1.pdf}
+            \\
+            \includegraphics[width=0.2\linewidth]{img/rx_array_unlabeled.pdf}            
+             ~ \\ ~ \\ ~ \\ ~ \\ ~ \\ ~ \\ ~ \\ 
+        \end{column}
+    \end{columns}
+    \begin{tikzpicture}[remember picture, overlay]
+        \node[anchor=south west] (img) at ([xshift=0.5cm, yshift=0.5cm]current page.south west) {
+            \includegraphics[width=0.45\linewidth]{img/IF_basis_labeled.pdf}%
+        };
+        \node[anchor=south east] at ([xshift=-0.5cm, yshift=0.5cm]current page.south east) {
+            \includegraphics[width=0.45\linewidth]{img/TOF_basis_labeled.pdf}
+        };
+        \node[anchor=center] at ([yshift=-3cm]current page.center) { 
+            vs.
+        };
+    \end{tikzpicture}
+\end{frame}

@@ -1,0 +1,45 @@
+\begin{frame}[label=change_spec]
+    \frametitle{Ensuring Consistent Sampling}
+
+    \begin{columns}
+        \begin{column}{0.7\textwidth}
+            \textcolor{red}{\textbf{Problem:}} \alert{Reflection point} moves along trail for each \textcolor{red}{\textbf{RX}}
+            \begin{itemize} \footnotesize
+                \item[\(\blacktriangleright\)] TOF solution assumes reflections from same region 
+            \end{itemize}
+            \vfill
+            \uncover<2->{\textcolor{green}{\textbf{Solution}}: Ensure change in reflection point is small
+            \begin{itemize} \footnotesize
+                \item[\(\blacktriangleright\)] \(\text{Max. change} = \frac{\text{Max. \textcolor{red}{\textbf{RX}} separation}}{2}\)
+                \item All \textcolor{red}{\textbf{RX}} should overlap \alert{Fresnel zones}
+            \end{itemize}}
+
+            % \uncover<3->{All \textcolor{red}{\textbf{RX}} should overlap \alert{Fresnel zones}
+            % \begin{itemize} \footnotesize
+            %     \item[\(\blacktriangleright\)] Region responsible for >90\% of reflected power
+            %     \item[\(\blacktriangleright\)] \(\sim 0.7\) km on either side of reflection point
+            %     \item[\(\blacktriangleright\)] Overlapping Fresnel zones mean similar spatial sampling
+            %     \item[\(\blacktriangleright\)] Solving for \alert{average reflection point} of array
+            % \end{itemize} }
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            \centering
+            \alt<1-3>{%
+                \includegraphics[width=\linewidth]{img/change_in_spec.png}%
+            }{%
+                \includegraphics[width=\linewidth]{img/change_in_spec_small.png}%
+            }
+        \end{column}
+    \end{columns}
+    \begin{columns}[T]
+        \begin{column}{0.75\textwidth}
+            \alert{Does each \textcolor{red}{\textbf{RX}} in an array reflect off the same region?} 
+        \end{column}
+        \begin{column}{0.35\textwidth}
+            \uncover<4
+            >{\hl{\textbf{YES!*}}
+
+            \footnotesize *If the array is not too large...}           
+        \end{column}
+    \end{columns}
+\end{frame}

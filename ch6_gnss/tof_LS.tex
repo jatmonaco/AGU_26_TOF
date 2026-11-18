@@ -1,0 +1,43 @@
+\begin{frame}[t, label=gnss_ls]
+    \frametitle{TOF Estimation of Meteor Location}
+    \begin{center}
+        \textit{\textcolor{red}{Warning}: Math Time!}
+    \end{center}
+    
+    The meteor trail's reflection point can be estimated using \alert{iterative linearized least squares}: 
+    \begin{equation*}
+        \hat{\mathbf{r}}^s = \left( \mathbf{G}^{\top} \mathbf{G} \right)^{-1} \mathbf{G}^{\top} \left(\boldsymbol{\rho} - \boldsymbol{\rho}(\mathbf{r}^s_0)  \right) + \mathbf{r}_0^s
+    \end{equation*}
+    \begin{columns}[t]
+        \begin{column}{0.1\linewidth}
+            Where:
+        \end{column}
+        \begin{column}{0.3\linewidth}
+            {\setlength{\leftmargini}{0em} \begin{itemize} \scriptsize \vspace{-1.5\baselineskip}%
+                \item[\(\blacktriangleright\)] \hlonly<2->{{\(\boldsymbol{\rho}\)}: vector of 4+ measured ranges}
+                \item[\(\blacktriangleright\)] \hlonly<4->{{\(\hat{\mathbf{r}}^s\)}: estimated reflection point}
+                \item[\(\blacktriangleright\)] \(\mathbf{r}^s_0 = [x_0^s, y_0^s, z_0^s]\): linearization point
+                \item[\(\blacktriangleright\)] \(\mathbf{r}^T = [x^{T}, y^{T}, z^{T}]\): location of \textcolor{blue}{\textbf{TX}}\textsubscript{j}
+                \item[\(\blacktriangleright\)] \(\mathbf{r}^{R_j} = [x^{R_j}, y^{R_j}, z^{R_j}]\): location of \textcolor{red}{\textbf{RX}}
+            \end{itemize}}
+        \end{column}
+        \begin{column}{0.6\linewidth}
+            {\setlength{\leftmargini}{0em} \begin{itemize} \scriptsize \vspace{-1.5\baselineskip}%
+                \item[\(\blacktriangleright\)] \hlonly<3->{{\(\mathbf{G}\)}: geometry matrix}, relating \textcolor{blue}{\textbf{TX}}/\textcolor{red}{\textbf{RX}}/\(\mathbf{r}^s\) locations to bistatic range
+            \end{itemize}} \scriptsize
+            \begin{equation*}
+                \mathbf{G} = 
+                \begin{bmatrix} 
+                    \frac{x_{0}^s - x^{R_1}}{|\mathbf{r}_0^s - \mathbf{r}^{R_1}|} +  \frac{x_{0}^s - x^{T}}{|\mathbf{r}_0^s - \mathbf{r}^{T}|} & 
+                    \frac{y_{0}^s - y^{R_1}}{|\mathbf{r}_0^s - \mathbf{r}^{R_1}|} +  \frac{y_{0}^s - y^{T}}{|\mathbf{r}_0^s - \mathbf{r}^{T}|} & 
+                    \frac{z_{0}^s - z^{R_1}}{|\mathbf{r}_0^s - \mathbf{r}^{R_1}|} +  \frac{z_{0}^s - z^{T}}{|\mathbf{r}_0^s - \mathbf{r}^{T}|}  \\ 
+                    \vdots & \vdots & \vdots  \\ 
+                    \frac{x_{0}^s - x^{R}}{|\mathbf{r}_0^s - \mathbf{r}^{R_j}|} +  \frac{x_{0}^s - x^{T}}{|\mathbf{r}_0^s - \mathbf{r}^{T}|} & 
+                    \frac{y_{0}^s - y^{R_j}}{|\mathbf{r}_0^s - \mathbf{r}^{R_j}|} +  \frac{y_{0}^s - y^{T}}{|\mathbf{r}_0^s - \mathbf{r}^{T}|} & 
+                    \frac{z_{0}^s - z^{R_j}}{|\mathbf{r}_0^s - \mathbf{r}^{R_j}|} +  \frac{z_{0}^s - z^{T}}{|\mathbf{r}_0^s - \mathbf{r}^{T}|}  
+                \end{bmatrix}
+            \end{equation*}
+        \end{column}
+    \end{columns}
+    \textit{Initial guess \(\xrightarrow[]{}\) estimate position \(\xrightarrow[]{}\) update guess \(\xrightarrow[]{}\) repeat until convergence}
+\end{frame}

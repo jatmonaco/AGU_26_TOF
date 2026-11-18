@@ -1,0 +1,40 @@
+\begin{frame}[label=gnss_conclusions]
+    \frametitle{Summary: Time-of-Flight (TOF) Positioning}
+    \begin{columns}
+        \begin{column}{0.7\textwidth}
+            \alert{Interferometry is challenging} to calibrate, derive uncertainties
+            \begin{itemize}
+                \item[$\blacktriangleright$] Makes deployment, operation, and analysis difficult 
+            \end{itemize}
+
+            \uncover<2->{\alert{TOF positioning} can provide precise position estimates %
+            \begin{itemize}  %\vspace{-\baselineskip}%
+                \item Only uses range measurements
+                \item {No calibration} \(\xrightarrow[]{}\) {easier deployments}
+                \item {Easily derived uncertainties} \(\xrightarrow[]{}\) {better analysis}
+                \item Robust to noise \(\xrightarrow[]{}\) {fewer observations discarded}
+            \end{itemize}}
+
+            \uncover<3->{\alert{Few system changes required} 
+            \begin{itemize}
+                \item Larger \textcolor{red}{\textbf{RX}} arrays
+            \end{itemize}}
+
+            \uncover<4->{Could \alert{replace or supplement} interferometry}
+
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            \centering
+             \begin{tikzpicture}[anchor=(current bounding box.north)]
+                \node[anchor=north, inner sep=0] (img) at (0,0) {
+                    \includegraphics[width=0.9\linewidth]{img/calibration2.png}
+                };
+                \node[anchor=south, inner sep=2pt] at ([yshift=0.25cm, xshift=0.6cm]img.south) { 
+                    {{{\fontsize{3}{3.4}\selectfont\raggedleft \textcolor{white}{\textit{Credit:} \citeauthor{marino_MeteorRadarPhase_2024}, \citeyear{marino_MeteorRadarPhase_2024} \cite{marino_MeteorRadarPhase_2024}}}}}
+                };
+            \end{tikzpicture}
+            \includegraphics[width=0.5\linewidth]{img/4ellipsoids.pdf}
+            \includegraphics[width=\linewidth]{img/uncert_stats.pdf}
+        \end{column}
+    \end{columns}
+\end{frame}
