@@ -197,7 +197,7 @@
             \quad
             \textbullet
             \quad
-            \insertsubtitle
+            \insertshortsubtitle
             \quad
             |
             \quad
@@ -224,7 +224,7 @@
                 \quad
                 \textbullet
                 \quad
-                \insertsubtitle
+                \insertshortsubtitle
                 \quad
             }
             \hfill
@@ -341,7 +341,7 @@
             \begin{beamercolorbox}[wd = \textwidth, ht = 1cm, sep = 0.2cm, ignorebg]{footer}
                 \includegraphics[height = 0.8cm]{img/smead.pdf}
                 \hfill
-                \includegraphics[height=0.8cm]{img/cedar_2026.jpg}
+                \includegraphics[height=0.8cm]{img/meeting_logo.png}
                 \raisebox{0.0cm}{
                 \parbox[b][0.8cm][c]{2cm}{\centering %
                     {\fontsize{4}{4.4}\selectfont \textcolor{white}{This work was supported in part by the National Science Foundation, Award 1543446.}}}}
