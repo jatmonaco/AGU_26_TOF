@@ -1,9 +1,53 @@
+
+\begin{frame}[label=precision_requirements]
+    \frametitle{TOF Precision: Propagation and Requirements}
+    \begin{columns}
+        \begin{column}{0.8\textwidth}
+            {\alert{Errors are easily propagated} to get positional uncertainties: %
+            {\scriptsize %
+            \begin{gather*} %
+                \mathbf{H} = \left( \mathbf{G}^{\top} \mathbf{G} \right)^{-1}  \\ 
+                \begin{matrix}  
+                    \sigma_E = \sigma_{\rho} \cdot \sqrt{H_{1,1}}  \qquad \qquad & \sigma_N = \sigma_{\rho} \cdot \sqrt{H_{2,2}} & \qquad \qquad \sigma_U = \sigma_{\rho} \cdot \sqrt{H_{3,3}} 
+                \end{matrix}
+            \end{gather*}}}
+            
+            Dependent on: \alert{array geometry} (\(\mathbf{G}\)) and \alert{measurement errors} \(\sigma_\rho\)
+            \begin{center}
+                \small
+                \alert{Larger array} \(\xrightarrow[]{}\) More diverse measurements 
+
+                \(\xrightarrow[]{}\) \alert{smaller positional uncertainties}
+            \end{center}
+            \begin{tcolorbox}[width=\linewidth, halign=center,  boxrule=1pt, arc=0pt,auto outer arc,left=0pt,right=0pt,boxsep=0pt]
+                Science-driven positional precision requirement:
+
+                \hl{\textbf{1 km uncertainty in altitude}}
+            \end{tcolorbox}
+        \end{column}
+        \begin{column}{0.3\textwidth}
+            \begin{tikzpicture}
+                \node[anchor=center, inner sep=0] (img) at (0,0) {
+                    {{\includegraphics[width=0.85\linewidth]{img/chau_MultistaticSpecularMeteor_2021.png}}}
+                };
+                \node[anchor=east, inner sep=2pt] at ([yshift=-0.2cm]img.east) { 
+                    {{{\fontsize{3}{3.4}\selectfont\raggedleft \textcolor{black}{\textit{Credit:} \citeauthor{chau_MultistaticSpecularMeteor_2021}, \citeyear{chau_MultistaticSpecularMeteor_2021} \cite{chau_MultistaticSpecularMeteor_2021}}}}}
+                };
+            \end{tikzpicture}        
+            {\setlength{\leftmargini}{1em} \begin{itemize} \scriptsize
+                \item 2 km altitude bins common
+                \item Vertical wavelength of studied dynamics: \(\sim\)10s of km
+            \end{itemize}}  
+        \end{column}
+    \end{columns}
+\end{frame}
+
 \begin{frame}[label=gnss_viability]
     \frametitle{TOF Precision depends on \alert{Measurement Errors}}
     % \textit{Position estimate uncertainties depends on...}  (1) \colorbox{yellow}{\textbf{Measurement Errors}}
     \begin{columns}[T]
         \begin{column}{0.5\textwidth}
-            Range measurements have uncertainty: %
+            Measurement uncertainty: %
             \begin{center}
                 \(\sigma_\rho = \sqrt{2\sigma^2_{clk} + 2\sigma^2_{pos} + \sigma^2_{\Delta\tau}}\)
             \end{center} %
@@ -42,53 +86,3 @@
     \centering % 
     \alert{De-biased Trail correlation function derived} (\textcolor{red}{\textit{\textbf{red}}})
 \end{frame}
-
-\begin{frame}[label=precision_requirements]
-    \frametitle{TOF Precision: Propagation and Requirements}
-    \begin{columns}
-        \begin{column}{0.7\textwidth}
-            TOF precision depends on \alert{array geometry}: 
-            \begin{center}
-                \scriptsize
-                \alert{Larger array} \(\xrightarrow[]{}\) More diverse measurements
-                
-                \(\xrightarrow[]{}\) \alert{smaller positional uncertainties}
-            \end{center}
-
-            Quantified through dilution of precision (DOP) matrix: 
-            {\scriptsize \begin{equation*} \scriptsize
-                \mathbf{H} = \left( \mathbf{G}^{\top} \mathbf{G} \right)^{-1}
-            \end{equation*}}
-            %
-            {Measurement \alert{errors are propagated} to get positional uncertainties: 
-            {\scriptsize 
-            \begin{align*}
-                \begin{matrix}  
-                    \sigma_E = \sigma_{\rho} \cdot \sqrt{H_{1,1}}  \qquad \qquad & \sigma_N = \sigma_{\rho} \cdot \sqrt{H_{2,2}} & \qquad \qquad \sigma_U = \sigma_{\rho} \cdot \sqrt{H_{3,3}} 
-                \end{matrix}
-            \end{align*}}}
-
-            
-                \begin{tcolorbox}[width=\linewidth, halign=center,  boxrule=1pt, arc=0pt,auto outer arc,left=0pt,right=0pt,boxsep=0pt]
-                Science-driven positional precision requirement:
-
-                \hl{\textbf{1 km uncertainty in altitude}}
-            \end{tcolorbox}
-        \end{column}
-        \begin{column}{0.3\textwidth}
-            \begin{tikzpicture}
-                \node[anchor=center, inner sep=0] (img) at (0,0) {
-                    {{\includegraphics[width=0.7\linewidth]{img/chau_MultistaticSpecularMeteor_2021.png}}}
-                };
-                \node[anchor=east, inner sep=2pt] at ([yshift=-0.2cm]img.east) { 
-                    {{{\fontsize{3}{3.4}\selectfont\raggedleft \textcolor{black}{\textit{Credit:} \citeauthor{chau_MultistaticSpecularMeteor_2021}, \citeyear{chau_MultistaticSpecularMeteor_2021} \cite{chau_MultistaticSpecularMeteor_2021}}}}}
-                };
-            \end{tikzpicture}        
-            {\setlength{\leftmargini}{1em} \begin{itemize} \scriptsize
-                \item 2 km altitude bins common
-                \item Vertical wavelength of studied dynamics: \(\sim\)10s of km
-            \end{itemize}}  
-        \end{column}
-    \end{columns}
-\end{frame}
-
